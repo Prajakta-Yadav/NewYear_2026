@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fork Infosystems – Company Portal</title>
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+    position: relative;
+    z-index: 900;
+}
+
+/* HEADER BAR */
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+}
+
+/* LOGO CENTER */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.header-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ================= MENU ICON ================= */
+.menu-icon {
+    position: absolute;
+    left: 16px;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+.menu-icon span {
+    height: 4px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= SIDEBAR ================= */
+.hidden-nav {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100vh;
+    background: #020617;
+    padding-top: 5rem;
+    transition: left 0.3s ease;
+    z-index: 1100;
+}
+
+.hidden-nav.active {
+    left: 0;
+}
+
+.hidden-nav ul {
+    list-style: none;
+}
+
+.hidden-nav li {
+    padding: 1rem 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.hidden-nav li:hover {
+    background: #1e293b;
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ================= NEWS SLIDER ================= */
+.news-slider {
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.news-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.news-card {
+    min-width: 100%;
+    background: #1e293b;
+    padding: 1.4rem;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+/* CONTROLS */
+.slider-controls {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.slider-controls button {
+    pointer-events: all;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+}
+
+/* ================= MAIN ================= */
+.main-wrapper {
+    transition: margin-left 0.3s ease;
+}
+
+.main-wrapper.shifted {
+    margin-left: 250px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.content, .right-aside {
+    display: grid;
+    gap: 1rem;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.4rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    min-height: 90px;
+}
+
+/* DISABLE CONTENT */
+.disable-content {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* FOOTER */
+.footer {
+    background: #020617;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .main-wrapper.shifted {
+        margin-left: 0;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<header class="header">
+    <div class="header-bar">
+        <!-- MENU ICON -->
+        <div class="menu-icon" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- LOGO CENTER -->
+        <div class="logo">
+            <img src="assets/logo3.png" alt="ForkInfosystems Logo" class="header-logo">
+            <h1>Fork Infosystems</h1>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="hidden-nav" id="hiddenNav">
+        <ul>
+            <li>Dashboard</li>
+            <li>Projects</li>
+            <li>Teams</li>
+            <li>Careers</li>
+            <li>Contact</li>
+        </ul>
+    </aside>
+
+    <!-- NEWS -->
+    <div class="news-slider">
+        <div class="news-track" id="newsTrack">
+            <div class="news-card">🚀 Hiring Full Stack Developers</div>
+            <div class="news-card">📢 Town Hall Meeting – Jan 15</div>
+            <div class="news-card">💡 New AI Platform Release</div>
+        </div>
+        <div class="slider-controls">
+            <button id="prev">‹</button>
+            <button id="next">›</button>
+        </div>
+    </div>
+</header>
+
+<div class="main-wrapper" id="mainWrapper">
+<main class="main" id="mainContent">
+    <section class="content">
+        <div class="card">📊 Project Analytics</div>
+        <div class="card">🧠 Developer Resources</div>
+        <div class="card">📂 Client Management</div>
+    </section>
+
+    <aside class="right-aside">
+        <div class="card">🕒 Recent Activities</div>
+        <div class="card">📌 Notifications</div>
+    </aside>
+</main>
+</div>
+
+<footer class="footer">
+    © 2026 Fork Infosystems
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const hiddenNav = document.getElementById("hiddenNav");
+const overlay = document.getElementById("overlay");
+const mainWrapper = document.getElementById("mainWrapper");
+const mainContent = document.getElementById("mainContent");
+
+function openMenu() {
+    hiddenNav.classList.add("active");
+    menuToggle.classList.add("active");
+    overlay.classList.add("active");
+
+    if (window.innerWidth >= 992) {
+        mainWrapper.classList.add("shifted");
+    } else {
+        mainContent.classList.add("disable-content");
+    }
+}
+
+function closeMenu() {
+    hiddenNav.classList.remove("active");
+    menuToggle.classList.remove("active");
+    overlay.classList.remove("active");
+    mainWrapper.classList.remove("shifted");
+    mainContent.classList.remove("disable-content");
+}
+
+menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hiddenNav.classList.contains("active") ? closeMenu() : openMenu();
+});
+
+overlay.addEventListener("click", closeMenu);
+
+/* NEWS SLIDER */
+const track = document.getElementById("newsTrack");
+const cards = document.querySelectorAll(".news-card");
+let index = 0;
+
+function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+document.getElementById("next").onclick = () => {
+    index = (index + 1) % cards.length;
+    updateSlider();
+};
+
+document.getElementById("prev").onclick = () => {
+    index = (index - 1 + cards.length) % cards.length;
+    updateSlider();
+};
+
+setInterval(() => {
+    index = (index + 1) % cards.length;
+    updateSlider();
+}, 4000);
+</script>
+
+</body>
+</html>
