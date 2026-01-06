@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Portal – 5 Jan 2026</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", system-ui, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        header nav button {
+            background: #1e293b;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* ================= MAIN ================= */
+        main {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* ================= SECTION 1 ================= */
+        section:first-child {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 1rem;
+        }
+
+        section:first-child article,
+        section:first-child aside {
+            background: white;
+            border-radius: 14px;
+            padding: 1.4rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        /* ================= SECTION 2 ================= */
+        section:nth-child(2) {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        section:nth-child(2) h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        /* Articles Row */
+        section:nth-child(2) > div:first-of-type {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        section:nth-child(2) article {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.2rem;
+            min-height: 120px;
+        }
+
+        /* Aside Row */
+        section:nth-child(2) > div:last-of-type {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        section:nth-child(2) aside {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1.2rem;
+            min-height: 100px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            margin-top: 2rem;
+            background: #020617;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            section:first-child {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>Company Portal</h1>
+        <button id="notifyBtn">Notifications</button>
+    </nav>
+</header>
+
+<main>
+    <!-- SECTION 1 -->
+    <section>
+        <article>
+            <h2>📊 Dashboard Overview</h2>
+            <p>Key metrics, project summaries, and system health appear here.</p>
+        </article>
+
+        <aside>
+            <h3>🕒 Recent Activity</h3>
+            <p>Last login, updates, and alerts.</p>
+        </aside>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section>
+        <h1>📁 Company Resources</h1>
+
+        <div>
+            <article>
+                <h3>Projects</h3>
+                <p>Active and archived projects.</p>
+            </article>
+
+            <article>
+                <h3>Teams</h3>
+                <p>Team members and roles.</p>
+            </article>
+        </div>
+
+        <div>
+            <aside>
+                <h3>Notifications</h3>
+                <p>Important system messages.</p>
+            </aside>
+
+            <aside>
+                <h3>Support</h3>
+                <p>Helpdesk and documentation.</p>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 Company Portal
+</footer>
+
+<script>
+    // Simple interaction example
+    document.getElementById("notifyBtn").addEventListener("click", () => {
+        alert("No new notifications.");
+    });
+</script>
+
+</body>
+</html>
