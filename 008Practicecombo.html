@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fork Infosystems</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#f6f8fb;
+    overflow-x:hidden;
+}
+h2{font-weight:700}
+
+/* ---------- HEADER ---------- */
+header{
+    background:linear-gradient(135deg,#0b1220,#121c32);
+    color:#fff;
+    position:relative;
+}
+.header-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+.menu-icon{
+    position:absolute;
+    left:20px;
+    cursor:pointer;
+}
+.menu-icon span{
+    display:block;
+    width:25px;
+    height:3px;
+    background:#fff;
+    margin:5px 0;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo img{
+    width:45px;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:#10192f;
+    color:#fff;
+    padding:80px 20px;
+    transition:0.3s;
+    z-index:1000;
+}
+.sidebar.active{left:0}
+.sidebar ul{list-style:none;padding:0}
+.sidebar li{
+    padding:12px 0;
+    cursor:pointer;
+}
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    z-index:999;
+}
+.overlay.active{display:block}
+
+/* ---------- SLIDER ---------- */
+.slider{
+    overflow:hidden;
+    background:#1e293b;
+}
+.slider-track{
+    display:flex;
+    transition:0.5s;
+}
+.slide{
+    min-width:100%;
+    padding:15px;
+    text-align:center;
+    font-weight:600;
+}
+
+/* ---------- COURSES ---------- */
+.course-filters button{
+    margin:5px;
+}
+.course-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+.course-card:hover{transform:translateY(-5px)}
+
+/* ---------- STATS ---------- */
+.stats{
+    background:#0f172a;
+    color:#fff;
+}
+.stat-card{
+    text-align:center;
+    padding:20px;
+}
+.stat-card h3{
+    font-size:40px;
+    color:#38bdf8;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.main-content{
+    padding:60px 0;
+}
+.article-img{
+    animation:slideIn 2s ease;
+}
+@keyframes slideIn{
+    from{transform:translateX(80px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+    background:#0b1220;
+    color:#fff;
+    padding:30px 0;
+    text-align:center;
+}
+footer a{
+    color:#fff;
+    margin:0 10px;
+    font-size:20px;
+}
+footer a:hover{color:#38bdf8}
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <ul>
+        <li>Dashboard</li>
+        <li>Courses</li>
+        <li>Internships</li>
+        <li>Placements</li>
+        <li>Contact</li>
+    </ul>
+</aside>
+
+<!-- HEADER -->
+<header>
+    <div class="header-bar">
+        <div class="menu-icon" id="menuBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="logo">
+            <img src="assets/logo3.png" alt="">
+            <h3 class="m-0">Fork Infosystems</h3>
+        </div>
+    </div>
+
+    <!-- LIVE SLIDER -->
+    <div class="slider">
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide">🚀 Hiring Full Stack Developers</div>
+            <div class="slide">🎓 Internship Batch Started</div>
+            <div class="slide">🏆 100+ Students Placed</div>
+        </div>
+    </div>
+</header>
+
+<!-- COURSES -->
+<section class="container py-5">
+    <h2 class="text-center mb-4">Our Courses</h2>
+
+    <div class="text-center course-filters mb-4">
+        <button class="btn btn-outline-primary" data-filter="all">All</button>
+        <button class="btn btn-outline-primary" data-filter="programming">Programming</button>
+        <button class="btn btn-outline-primary" data-filter="web">Web</button>
+        <button class="btn btn-outline-primary" data-filter="mobile">Mobile</button>
+    </div>
+
+    <div class="row g-4" id="courseList"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 stat-card">
+                <h3 id="students">0</h3>
+                <p>Students Trained</p>
+            </div>
+            <div class="col-md-4 stat-card">
+                <h3 id="internships">0</h3>
+                <p>Internships</p>
+            </div>
+            <div class="col-md-4 stat-card">
+                <h3 id="placements">0</h3>
+                <p>Placements</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="container main-content">
+    <section class="row align-items-center">
+        <article class="col-md-6">
+            <h3>About Fork Infosystems</h3>
+            <p>
+                Fork Infosystems is a professional software training and development
+                company delivering industry-ready programmers through structured
+                learning, real-world projects, and placement-oriented guidance.
+            </p>
+        </article>
+
+        <aside class="col-md-6 text-center">
+            <img src="assets/logo3.png" class="img-fluid article-img" width="280">
+        </aside>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Fork Infosystems</p>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+</footer>
+
+<script>
+/* SIDEBAR */
+const menuBtn=document.getElementById("menuBtn");
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+menuBtn.onclick=()=>{sidebar.classList.add("active");overlay.classList.add("active")}
+overlay.onclick=()=>{sidebar.classList.remove("active");overlay.classList.remove("active")}
+
+/* SLIDER */
+let index=0;
+const track=document.getElementById("sliderTrack");
+setInterval(()=>{
+    index=(index+1)%3;
+    track.style.transform=`translateX(-${index*100}%)`;
+},3000);
+
+/* COURSES */
+const courses=[
+ {title:"C & C++",cat:"programming",dur:"3 Months"},
+ {title:"Java Full Stack",cat:"programming",dur:"6 Months"},
+ {title:"Web Development",cat:"web",dur:"4 Months"},
+ {title:"Flutter",cat:"mobile",dur:"3 Months"}
+];
+const courseList=document.getElementById("courseList");
+function renderCourses(f="all"){
+ courseList.innerHTML="";
+ courses.filter(c=>f==="all"||c.cat===f)
+ .forEach(c=>{
+   courseList.innerHTML+=`
+   <div class="col-md-3">
+     <div class="course-card">
+       <h5>${c.title}</h5>
+       <p>${c.dur}</p>
+     </div>
+   </div>`;
+ });
+}
+document.querySelectorAll(".course-filters button").forEach(b=>{
+ b.onclick=()=>renderCourses(b.dataset.filter);
+});
+renderCourses();
+
+/* COUNTERS */
+function animate(id,target){
+ let c=0;const el=document.getElementById(id);
+ const i=setInterval(()=>{
+  c++;el.innerText=c;
+  if(c===target)clearInterval(i);
+ },15);
+}
+animate("students",500);
+animate("internships",120);
+animate("placements",300);
+
+/* WHATSAPP */
+document.getElementById("whatsapp").onclick=()=>{
+ window.open("https://wa.me/919999999999","_blank");
+}
+</script>
+
+</body>
+</html>

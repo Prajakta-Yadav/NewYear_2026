@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fork Infosystems – Jan 8 2026</title>
+
+<style>
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #fff;
+}
+
+/* TOP BAR */
+.top-bar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo img {
+    width: 48px;
+    height: auto;
+}
+.logo h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* MENU TOGGLE */
+#menu-toggle {
+    display: none;
+}
+.menu-btn {
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+}
+.menu-btn span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+#menu-toggle:checked + label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px,5px);
+}
+#menu-toggle:checked + label span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + label span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px,-6px);
+}
+
+/* ========== NEWS BAR ========== */
+.news {
+    background: #1e293b;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+/* ========== LAYOUT ========== */
+.wrapper {
+    display: flex;
+    transition: 0.3s;
+}
+
+/* SIDEBAR */
+nav {
+    width: 0;
+    background: #020617;
+    overflow: hidden;
+    transition: 0.3s;
+}
+#menu-toggle:checked ~ .wrapper nav {
+    width: 220px;
+}
+nav ul {
+    list-style: none;
+    padding-top: 30px;
+}
+nav li {
+    padding: 14px 24px;
+    color: #fff;
+    cursor: pointer;
+}
+nav li:hover {
+    background: #1e293b;
+}
+
+/* MAIN */
+main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* CONTENT CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* TEXT */
+.hero-text {
+    flex: 1;
+}
+.hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* IMAGE */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.hero-image img {
+    max-width: 380px;
+    width: 100%;
+    animation: slideIn 1.4s ease;
+}
+
+/* IMAGE ANIMATION */
+@keyframes slideIn {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .menu-btn {
+        left: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn">
+        <span></span><span></span><span></span>
+    </label>
+
+    <div class="top-bar">
+        <div class="logo">
+            <img src="assets/logo3.png" alt="Fork Infosystems">
+            <h1>Fork Infosystems</h1>
+        </div>
+    </div>
+
+    <div class="news">
+        🚀 Hiring Full Stack Developers
+    </div>
+</header>
+
+<div class="wrapper">
+    <!-- SIDEBAR -->
+    <nav>
+        <ul>
+            <li>Dashboard</li>
+            <li>Courses</li>
+            <li>Internship</li>
+            <li>Placement</li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-text">
+                    <p>
+                        <strong>Fork Infosystems</strong> is a professional
+                        software training and development company delivering
+                        industry-ready programmers through structured learning,
+                        real-world projects, and placement-oriented guidance.
+                    </p>
+                </div>
+
+                <div class="hero-image">
+                    <img src="assets/logo3.png" alt="Fork Infosystems Logo">
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+</body>
+</html>
