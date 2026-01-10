@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fork Infosystems | Company Portal</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ========== GLOBAL ========== */
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f6f8fb;
+    overflow-x:hidden;
+}
+h2,h3{font-weight:700}
+
+/* ========== SIDEBAR ========== */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    width:250px;
+    height:100%;
+    background:#0f172a;
+    color:#fff;
+    padding:90px 20px;
+    transition:0.3s;
+    z-index:1000;
+}
+.sidebar.active{left:0}
+.sidebar ul{list-style:none;padding:0}
+.sidebar li{
+    padding:14px 0;
+    cursor:pointer;
+}
+.sidebar li:hover{color:#38bdf8}
+
+/* OVERLAY */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    z-index:999;
+}
+.overlay.active{display:block}
+
+/* ========== HEADER ========== */
+header{
+    background:linear-gradient(135deg,#0b1220,#121c32);
+    color:#fff;
+}
+.header-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    position:relative;
+}
+.menu-icon{
+    position:absolute;
+    left:20px;
+    cursor:pointer;
+}
+.menu-icon span{
+    display:block;
+    width:26px;
+    height:3px;
+    background:#fff;
+    margin:5px 0;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo img{width:45px}
+
+/* ========== SLIDER ========== */
+.slider{
+    overflow:hidden;
+    background:#1e293b;
+}
+.slider-track{
+    display:flex;
+    transition:0.6s ease;
+}
+.slide{
+    min-width:100%;
+    padding:15px;
+    text-align:center;
+    font-weight:600;
+}
+
+/* ========== MAIN SECTIONS ========== */
+main{
+    padding:60px 0;
+}
+section{
+    margin-bottom:70px;
+}
+.card-box{
+    background:#fff;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+.card-box:hover{
+    transform:translateY(-6px);
+}
+
+/* IMAGE ANIMATION */
+.animate-img{
+    animation:slideIn 1.8s ease;
+}
+@keyframes slideIn{
+    from{opacity:0;transform:translateX(80px)}
+    to{opacity:1;transform:translateX(0)}
+}
+
+/* ========== FOOTER ========== */
+footer{
+    background:#0b1220;
+    color:#fff;
+    text-align:center;
+    padding:30px 0;
+}
+footer a{
+    color:#fff;
+    margin:0 10px;
+    font-size:20px;
+}
+footer a:hover{color:#38bdf8}
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <ul>
+        <li>Dashboard</li>
+        <li>Courses</li>
+        <li>Internships</li>
+        <li>Placements</li>
+        <li>Contact</li>
+    </ul>
+</aside>
+
+<!-- HEADER -->
+<header>
+    <div class="header-bar">
+        <div class="menu-icon" id="menuBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="logo">
+            <img src="assets/logo3.png" alt="">
+            <h3 class="m-0">Fork Infosystems</h3>
+        </div>
+    </div>
+
+    <!-- LIVE SLIDER -->
+    <div class="slider">
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide">🚀 Hiring Full Stack Developers</div>
+            <div class="slide">🎓 Internship Batch Started</div>
+            <div class="slide">🏆 100+ Students Placed</div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+    <!-- SECTION 1 -->
+    <section class="row align-items-center">
+        <article class="col-md-6">
+            <div class="card-box">
+                <h3>About Fork Infosystems</h3>
+                <p>
+                    Fork Infosystems is a professional software training and development
+                    company focused on building industry-ready developers through
+                    real-world projects, structured learning, and placement support.
+                </p>
+            </div>
+        </article>
+
+        <aside class="col-md-6 text-center">
+            <img src="assets/logo3.png" class="img-fluid animate-img" width="280">
+        </aside>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="row g-4">
+        <article class="col-md-4">
+            <div class="card-box text-center">
+                <i class="fa-solid fa-laptop-code fa-2x mb-3 text-primary"></i>
+                <h5>Courses</h5>
+                <p>Industry-oriented programming courses</p>
+            </div>
+        </article>
+
+        <article class="col-md-4">
+            <div class="card-box text-center">
+                <i class="fa-solid fa-user-graduate fa-2x mb-3 text-success"></i>
+                <h5>Internships</h5>
+                <p>Live projects with mentorship</p>
+            </div>
+        </article>
+
+        <aside class="col-md-4">
+            <div class="card-box text-center">
+                <i class="fa-solid fa-briefcase fa-2x mb-3 text-warning"></i>
+                <h5>Placements</h5>
+                <p>100% placement assistance</p>
+            </div>
+        </aside>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Fork Infosystems</p>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
+</footer>
+
+<script>
+/* SIDEBAR */
+const menuBtn=document.getElementById("menuBtn");
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+
+menuBtn.onclick=()=>{
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+}
+overlay.onclick=()=>{
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+/* SLIDER */
+let index=0;
+const track=document.getElementById("sliderTrack");
+setInterval(()=>{
+    index=(index+1)%3;
+    track.style.transform=`translateX(-${index*100}%)`;
+},3500);
+
+/* WHATSAPP */
+document.getElementById("whatsapp").onclick=()=>{
+    window.open("https://wa.me/919999999999","_blank");
+};
+</script>
+
+</body>
+</html>

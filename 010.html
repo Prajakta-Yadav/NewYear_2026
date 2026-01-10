@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Jan 2026 Document</title>
+    <link rel="stylesheet" href="010.css">
+
+    <style>
+         header {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        header nav button {
+            background: #1e293b;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* CONTENT CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* TEXT */
+.hero-text {
+    flex: 1;
+}
+.hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* IMAGE */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.hero-image img {
+    max-width: 380px;
+    width: 100%;
+    animation: slideIn 1.4s ease;
+}
+
+/* IMAGE ANIMATION */
+@keyframes slideIn {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .menu-btn {
+        left: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+<header>
+    <div class="slider-container">
+        <!-- MENU ICON -->
+        <div class="menu-icon" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- LOGO CENTER -->
+        <div class="logo">
+            <img src="assets/logo3.png" alt="ForkInfosystems Logo" class="header-logo">
+            <h1>Fork Infosystems</h1>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="hidden-nav" id="hiddenNav">
+        <ul>
+            <li>Dashboard</li>
+            <li>Projects</li>
+            <li>Teams</li>
+            <li>Careers</li>
+            <li>Contact</li>
+        </ul>
+    </aside>
+
+
+        <div class="slider" id="slider">
+            <div class="slider-card">
+                <h2>Company Event 2026</h2>
+                <p>Annual innovation & technology meetup</p>
+            </div>
+            <div class="slider-card">
+                <h2>New Newsletter</h2>
+                <p>January edition is now live</p>
+            </div>
+            <div class="slider-card">
+                <h2>Product Launch</h2>
+                <p>Introducing our next-gen platform</p>
+            </div>
+        </div>
+
+        <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+        <button class="slider-btn next" onclick="nextSlide()">❯</button>
+    </div>
+
+    <nav>
+        <h1>Company Portal</h1>
+        <button id="notifyBtn">Notifications</button>
+    </nav>
+</header>
+
+
+<main>
+
+     <div class="container">
+            <section class="hero">
+                <div class="hero-text">
+                    <p>
+                        <strong>Fork Infosystems</strong> is a professional
+                        software training and development company delivering
+                        industry-ready programmers through structured learning,
+                        real-world projects, and placement-oriented guidance.
+                    </p>
+                </div>
+
+                <div class="hero-image">
+                    <img src="assets/logo3.png" alt="Fork Infosystems Logo">
+                </div>
+            </section>
+        </div>
+
+    <!-- SECTION 1 -->
+    <section>
+        <article>
+            <h2>📊 Dashboard Overview</h2>
+            <p>Key metrics, project summaries, and system health appear here.</p>
+        </article>
+
+        <aside>
+            <h3>🕒 Recent Activity</h3>
+            <p>Last login, updates, and alerts.</p>
+        </aside>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section>
+        <h1>📁 Company Resources</h1>
+
+        <div>
+            <article>
+                <h3>Projects</h3>
+                <p>Active and archived projects.</p>
+            </article>
+
+            <article>
+                <h3>Teams</h3>
+                <p>Team members and roles.</p>
+            </article>
+        </div>
+
+        <div>
+            <aside>
+                <h3>Notifications</h3>
+                <p>Important system messages.</p>
+            </aside>
+
+            <aside>
+                <h3>Support</h3>
+                <p>Helpdesk and documentation.</p>
+            </aside>
+        </div>
+    </section>
+
+
+    <section class="container my-5" id="programs">
+
+    <ul class="nav nav-pills justify-content-center mb-4" id="programTabs">
+        <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#courses">
+                📘 Courses
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#internship">
+                🎓 Internship
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#placement">
+                🏆 Placement
+            </button>
+        </li>
+    </ul>
+
+
+     <div class="tab-content">
+
+        <!-- ================= COURSES ================= -->
+        <section class="tab-pane fade show active" id="courses">
+            <article class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <img src="assets/icons/c.png" class="course-icon">
+                        <h5>C / C++</h5>
+                        <p>Data Structure, Logic Building, Competitive Programming</p>
+                        <span class="badge bg-primary">25+ Batches</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <img src="assets/icons/java.png" class="course-icon">
+                        <h5>Java & .NET</h5>
+                        <p>Enterprise Development, OOPs, Projects</p>
+                        <span class="badge bg-success">16+ Batches</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <img src="assets/icons/web.png" class="course-icon">
+                        <h5>Web Development</h5>
+                        <p>HTML, CSS, JavaScript, React</p>
+                        <span class="badge bg-info">7+ Batches</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card text-center p-4 h-100">
+                        <img src="assets/icons/flutter.png" class="course-icon">
+                        <h5>Flutter</h5>
+                        <p>Mobile App Development with Firebase</p>
+                        <span class="badge bg-warning">2+ Batches</span>
+                    </div>
+                </div>
+
+                <aside class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h5>Training Strengths</h5>
+                        <ul>
+                            <li>Programming Fundamentals</li>
+                            <li>Live Projects</li>
+                            <li>Interview Preparation</li>
+                            <li>Career Guidance</li>
+                            <li>100% Job Assistance</li>
+                        </ul>
+                    </div>
+                </aside>
+
+            </article>
+        </section>
+
+        <!-- ================= INTERNSHIP ================= -->
+        <section class="tab-pane fade" id="internship">
+            <article class="text-center mb-4">
+                <h3>Official Internship Partners</h3>
+                <p>Industry recognized internship programs</p>
+            </article>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/partners/cobit.png" class="partner-logo">
+                        <p>COBIT Digitech</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/partners/exec.png" class="partner-logo">
+                        <p>Exec Software</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/partners/star.png" class="partner-logo">
+                        <p>Star Maven</p>
+                    </div>
+                </div>
+
+                <aside class="col-md-4">
+                    <div class="card p-4">
+                        <h5>Internship Benefits</h5>
+                        <ul>
+                            <li>Live Industry Projects</li>
+                            <li>Mentor Support</li>
+                            <li>Completion Certificate</li>
+                            <li>Placement Assistance</li>
+                        </ul>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ================= PLACEMENT ================= -->
+        <section class="tab-pane fade" id="placement">
+            <article class="text-center mb-4">
+                <h3>Placement Achievements</h3>
+                <p>Our students placed in top companies</p>
+            </article>
+
+            <div class="row g-4">
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/companies/infosys.png" class="company-logo">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/companies/tcs.png" class="company-logo">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/companies/wipro.png" class="company-logo">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <div class="card p-3 text-center">
+                        <img src="assets/companies/capgemini.png" class="company-logo">
+                    </div>
+                </div>
+
+                <aside class="col-md-12">
+                    <div class="card p-4 mt-3">
+                        <h5>Placement Support</h5>
+                        <p>
+                            Resume building, mock interviews,
+                            aptitude training, and continuous placement drives.
+                        </p>
+                        <strong>And many more companies…</strong>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- COURSES -->
+<section class="container py-5">
+    <h2 class="text-center mb-4">Our Courses</h2>
+
+    <div class="text-center course-filters mb-4">
+        <button class="btn btn-outline-primary" data-filter="all">All</button>
+        <button class="btn btn-outline-primary" data-filter="programming">Programming</button>
+        <button class="btn btn-outline-primary" data-filter="web">Web</button>
+        <button class="btn btn-outline-primary" data-filter="mobile">Mobile</button>
+    </div>
+
+    <div class="row g-4" id="courseList"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 stat-card">
+                <h3 id="students">0</h3>
+                <p>Students Trained</p>
+            </div>
+            <div class="col-md-4 stat-card">
+                <h3 id="internships">0</h3>
+                <p>Internships</p>
+            </div>
+            <div class="col-md-4 stat-card">
+                <h3 id="placements">0</h3>
+                <p>Placements</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <h3>Connect With Us</h3>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+</footer>                                                                                                                      
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+let index = 0;
+const slider = document.getElementById("slider");
+const totalSlides = slider.children.length;
+
+function showSlide() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function nextSlide() {
+    index = (index + 1) % totalSlides;
+    showSlide();
+}
+
+function prevSlide() {
+    index = (index - 1 + totalSlides) % totalSlides;
+    showSlide();
+}
+
+/* Auto slide every 4 seconds */
+setInterval(nextSlide, 4000);
+</script>
+
+</body>
+</html>
