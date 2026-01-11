@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codint Digitech | Your Digital Partner</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ================= GLOBAL ================= */
+:root{
+    --primary:#2563eb;
+    --dark:#020617;
+    --light:#f8fafc;
+}
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--light);
+    overflow-x:hidden;
+}
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:#fff;
+    position:relative;
+}
+.top-bar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    position:relative;
+}
+.menu-btn{
+    position:absolute;
+    left:20px;
+    cursor:pointer;
+}
+.menu-btn span{
+    display:block;
+    width:26px;
+    height:3px;
+    background:#fff;
+    margin:5px 0;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.brand span{
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    position:fixed;
+    top:0; left:-260px;
+    width:260px; height:100%;
+    background:var(--dark);
+    color:#fff;
+    padding:80px 20px;
+    transition:0.4s;
+    z-index:1000;
+}
+.sidebar.active{left:0}
+.sidebar li{
+    padding:14px;
+    list-style:none;
+    cursor:pointer;
+}
+.sidebar li:hover{
+    background:#1e293b;
+}
+
+/* ================= HERO ================= */
+.hero{
+    padding:80px 20px;
+}
+.hero h1 span{
+    color:#38bdf8;
+}
+.hero-img{
+    max-width:360px;
+    animation:slideIn 1.2s ease;
+}
+@keyframes slideIn{
+    from{transform:translateX(80px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+}
+
+/* ================= SLIDER ================= */
+.slider{
+    overflow:hidden;
+    margin-top:20px;
+}
+.slider-track{
+    display:flex;
+    transition:0.6s;
+}
+.slide{
+    min-width:100%;
+    padding:22px;
+    background:#1e293b;
+    text-align:center;
+    border-radius:14px;
+    font-weight:600;
+}
+
+/* ================= CARDS ================= */
+.card{
+    border-radius:16px;
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* ================= PROGRAMS ================= */
+#programs{
+    background:#f1f5f9;
+    border-radius:24px;
+    padding:60px 20px;
+}
+.nav-pills .nav-link.active{
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+}
+
+/* ================= NOTIFICATION ================= */
+#notify{
+    position:fixed;
+    top:20px; right:20px;
+    background:#22c55e;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:30px;
+    display:none;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:var(--dark);
+    color:#fff;
+    padding:30px;
+    text-align:center;
+}
+footer a{
+    color:#fff;
+    margin:0 10px;
+    font-size:22px;
+}
+footer a:hover{
+    color:#38bdf8;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .hero{text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NOTIFICATION -->
+<div id="notify">✅ Welcome to Codint Digitech</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+<ul>
+<li>Home</li>
+<li>Services</li>
+<li>Programs</li>
+<li>Careers</li>
+<li>Contact</li>
+</ul>
+</aside>
+
+<!-- HEADER -->
+<header>
+<div class="top-bar">
+    <div class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="brand">
+        <span>CodintDigitech</span>
+    </div>
+</div>
+
+<div class="container slider">
+    <div class="slider-track" id="sliderTrack">
+        <div class="slide">🚀 Digital Transformation Experts</div>
+        <div class="slide">📈 Influencer & Brand Growth Solutions</div>
+        <div class="slide">💡 Building Future-Ready Products</div>
+    </div>
+</div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+<!-- HERO -->
+<section class="hero row align-items-center">
+    <article class="col-md-6">
+        <h1>codintDigitech<br><span>Your Digital Partner & Influencer</span></h1>
+        <p class="mt-3">
+            We help startups and enterprises grow through technology,
+            digital marketing, influencer branding and innovation.
+        </p>
+    </article>
+    <aside class="col-md-6 text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" class="hero-img">
+    </aside>
+</section>
+
+<!-- SERVICES -->
+<section class="row g-4 my-5">
+<article class="col-md-4">
+<div class="card p-4 text-center">
+<h5>💻 Software Development</h5>
+<p>Web, Mobile & Cloud solutions</p>
+</div>
+</article>
+<article class="col-md-4">
+<div class="card p-4 text-center">
+<h5>📢 Digital Marketing</h5>
+<p>SEO, Ads, Influencer campaigns</p>
+</div>
+</article>
+<article class="col-md-4">
+<div class="card p-4 text-center">
+<h5>🎓 Training & Internships</h5>
+<p>Industry-ready skill programs</p>
+</div>
+</article>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="my-5">
+
+<ul class="nav nav-pills justify-content-center mb-4">
+<li class="nav-item">
+<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#courses">Courses</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="pill" data-bs-target="#internship">Internship</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="pill" data-bs-target="#placement">Placement</button>
+</li>
+</ul>
+
+<div class="tab-content">
+
+<section class="tab-pane fade show active" id="courses">
+<div class="row g-4">
+<div class="col-md-4"><div class="card p-4">Full Stack Development</div></div>
+<div class="col-md-4"><div class="card p-4">Data Science</div></div>
+<div class="col-md-4"><div class="card p-4">Digital Marketing</div></div>
+</div>
+</section>
+
+<section class="tab-pane fade" id="internship">
+<div class="card p-4 text-center">
+Live Projects • Mentors • Certificates
+</div>
+</section>
+
+<section class="tab-pane fade" id="placement">
+<div class="card p-4 text-center">
+Hiring Partners • Mock Interviews • Career Support
+</div>
+</section>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Codint Digitech</p>
+<p><em>your digital partner and influencer</em></p>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* Sidebar */
+menuBtn.onclick=()=>sidebar.classList.toggle("active")
+
+/* Slider */
+let idx=0;
+const track=document.getElementById("sliderTrack");
+setInterval(()=>{
+    idx=(idx+1)%3;
+    track.style.transform=`translateX(-${idx*100}%)`;
+},3500);
+
+/* Notification using Promise */
+new Promise(resolve=>{
+    setTimeout(resolve,1000)
+}).then(()=>{
+    const n=document.getElementById("notify");
+    n.style.display="block";
+    setTimeout(()=>n.style.display="none",3000);
+});
+</script>
+
+</body>
+</html>

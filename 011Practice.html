@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codint Digitech | Your Digital Partner</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ============ GLOBAL ============ */
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f8fafc;
+    overflow-x:hidden;
+}
+section{margin-bottom:80px}
+h2{font-weight:700}
+
+/* ============ HEADER ============ */
+header{
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:#fff;
+}
+.top-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+    position:relative;
+}
+.menu-btn{
+    position:absolute;
+    left:20px;
+    cursor:pointer;
+}
+.menu-btn span{
+    display:block;
+    width:26px;
+    height:3px;
+    background:#fff;
+    margin:5px 0;
+}
+.brand span{
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+/* ============ SIDEBAR ============ */
+.sidebar{
+    position:fixed;
+    top:0; left:-260px;
+    width:260px; height:100%;
+    background:#020617;
+    color:#fff;
+    padding:80px 20px;
+    transition:0.4s;
+    z-index:1000;
+}
+.sidebar.active{left:0}
+.sidebar li{
+    list-style:none;
+    padding:14px;
+    cursor:pointer;
+}
+.sidebar li:hover{
+    background:#1e293b;
+}
+
+/* ============ SLIDER ============ */
+.slider{
+    overflow:hidden;
+    margin:20px;
+}
+.slider-track{
+    display:flex;
+    transition:0.6s;
+}
+.slide{
+    min-width:100%;
+    background:#1e293b;
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+    font-weight:600;
+}
+
+/* ============ HERO ============ */
+.hero img{
+    max-width:350px;
+    animation:slideIn 1.4s ease;
+}
+@keyframes slideIn{
+    from{transform:translateX(80px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+}
+
+/* ============ CARDS ============ */
+.card{
+    border-radius:16px;
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* ============ FORMS ============ */
+.form-control, .form-select{
+    border-radius:10px;
+}
+button:hover{
+    opacity:0.9;
+}
+
+/* ============ NOTIFICATION ============ */
+#notify{
+    position:fixed;
+    top:20px; right:20px;
+    background:#22c55e;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:30px;
+    display:none;
+    z-index:2000;
+}
+
+/* ============ FOOTER ============ */
+footer{
+    background:#020617;
+    color:#fff;
+    padding:30px;
+    text-align:center;
+}
+footer a{
+    color:#fff;
+    margin:0 10px;
+    font-size:22px;
+}
+footer a:hover{color:#38bdf8}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+    .hero{text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<div id="notify">✅ Form Submitted Successfully</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+<ul>
+<li>Home</li>
+<li>Services</li>
+<li>Internship</li>
+<li>Placement</li>
+<li>Contact</li>
+</ul>
+</aside>
+
+<!-- HEADER -->
+<header>
+<div class="top-bar">
+    <div class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="brand"><span>CodintDigitech</span></div>
+</div>
+
+<div class="slider">
+    <div class="slider-track" id="sliderTrack">
+        <div class="slide">🚀 Client Project Development</div>
+        <div class="slide">🎓 Internship & Live Training</div>
+        <div class="slide">🏆 Placement Preparation</div>
+    </div>
+</div>
+</header>
+
+<main class="container my-5">
+
+<!-- HERO -->
+<section class="row align-items-center hero">
+<article class="col-md-6">
+<h2>your digital partner & influencer</h2>
+<p>
+We build real-world client projects, provide industry internships,
+and prepare candidates for successful placements.
+</p>
+</article>
+<aside class="col-md-6 text-center">
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+</aside>
+</section>
+
+<!-- SERVICES -->
+<section class="row g-4 text-center">
+<div class="col-md-4"><div class="card p-4">Client Projects</div></div>
+<div class="col-md-4"><div class="card p-4">Internship Programs</div></div>
+<div class="col-md-4"><div class="card p-4">Placement Training</div></div>
+</section>
+
+<!-- CLIENT PROJECT FORM -->
+<section>
+<h2 class="text-center mb-4">Client Project Inquiry</h2>
+<form class="row g-3" onsubmit="submitForm(event)">
+<input class="form-control col-md-6" placeholder="Company / Client Name" required>
+<input class="form-control col-md-6" placeholder="Email" required>
+<textarea class="form-control" rows="4" placeholder="Project Requirements"></textarea>
+<button class="btn btn-primary col-12">Submit Project</button>
+</form>
+</section>
+
+<!-- INTERNSHIP FORM -->
+<section>
+<h2 class="text-center mb-4">Internship Registration</h2>
+<form class="row g-3" onsubmit="submitForm(event)">
+<input class="form-control col-md-6" placeholder="Student Name" required>
+<input class="form-control col-md-6" placeholder="College Name" required>
+<select class="form-select">
+<option>Web Development</option>
+<option>Java</option>
+<option>Python</option>
+<option>Digital Marketing</option>
+</select>
+<button class="btn btn-success col-12">Apply Internship</button>
+</form>
+</section>
+
+<!-- PLACEMENT FORM -->
+<section>
+<h2 class="text-center mb-4">Placement Preparation</h2>
+<form class="row g-3" onsubmit="submitForm(event)">
+<input class="form-control col-md-6" placeholder="Candidate Name" required>
+<input class="form-control col-md-6" placeholder="Skill Set" required>
+<textarea class="form-control" rows="3" placeholder="Career Goal"></textarea>
+<button class="btn btn-warning col-12">Register for Placement</button>
+</form>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Codint Digitech</p>
+<p><em>your digital partner and influencer</em></p>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* Sidebar */
+menuBtn.onclick=()=>sidebar.classList.toggle("active");
+
+/* Slider */
+let i=0;
+setInterval(()=>{
+    i=(i+1)%3;
+    sliderTrack.style.transform=`translateX(-${i*100}%)`;
+},3500);
+
+/* Form submit with Promise */
+function submitForm(e){
+    e.preventDefault();
+    new Promise(resolve=>{
+        setTimeout(resolve,1000);
+    }).then(()=>{
+        const n=document.getElementById("notify");
+        n.style.display="block";
+        setTimeout(()=>n.style.display="none",3000);
+        e.target.reset();
+    });
+}
+</script>
+
+</body>
+</html>
