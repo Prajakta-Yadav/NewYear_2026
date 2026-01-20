@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.logo {
+  color: #00bcd4;
+}
+
+/* Sections */
+.section {
+  padding: 60px 50px;
+  text-align: center;
+}
+
+.home {
+  background: #222;
+  color: white;
+  height: 20vh;
+}
+
+.home span {
+  color: #00bcd4;
+}
+
+.home button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  background: #00bcd4;
+  color: black;
+  cursor: pointer;
+}
+
+/* Skills */
+.skill-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.skill-list div {
+  background: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gray;
+}
+
+/* Projects */
+.projects {
+  background: #eaeaea;
+}
+
+.project-card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  box-shadow: 0 0 10px gray;
+  border-radius: 5px;
+}
+
+/* Contact */
+.contact p {
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
