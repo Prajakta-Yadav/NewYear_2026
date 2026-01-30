@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poetic Landing Page</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Background */
+    .background {
+      position: fixed;
+      inset: 0;
+      background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80");
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.8)
+      );
+      z-index: -1;
+    }
+
+    /* Content */
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    h1 span {
+      display: block;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    p {
+      margin-top: 1.5rem;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+      animation: fadeUp 1.2s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .buttons {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeUp 1.2s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .primary {
+      background: white;
+      color: black;
+    }
+
+    .primary:hover {
+      background: rgba(255,255,255,0.9);
+    }
+
+    .secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Floating particles */
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) {
+      bottom: 15%;
+      left: 50%;
+      animation-duration: 4s;
+    }
+
+    .dot:nth-child(2) {
+      top: 30%;
+      left: 10%;
+      animation-duration: 6s;
+      opacity: 0.4;
+    }
+
+    .dot:nth-child(3) {
+      top: 25%;
+      right: 15%;
+      animation-duration: 5s;
+      opacity: 0.5;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div>
+      <h1>
+        Where Dreams Learn
+        <span>to Breathe</span>
+      </h1>
+
+      <p>
+        A quiet place on the internet —<br />
+        where light, motion, and words meet<br />
+        to remind you who you are becoming.
+      </p>
+
+      <div class="buttons">
+        <button class="primary">Begin the Journey</button>
+        <button class="secondary">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating dots -->
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</body>
+</html>
