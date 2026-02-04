@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Transform & Transition Cards</title>
+
+<style>
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #80a0d9;
+}
+
+/* ===== SEMANTIC HEADER ===== */
+header {
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===== MAIN BIG CARD ===== */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+section.big-card {
+  background: rgb(87, 79, 79);
+  width: 95%;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* ===== COMMON CARD STYLE ===== */
+article.card {
+  background: #f9fafb;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+/* ===== HOVER INFO BUTTON ===== */
+.card button {
+  margin-top: 15px;
+  padding: 6px 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== INFO BOX ===== */
+.info {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: white;
+  padding: 10px;
+  width: 220px;
+  font-size: 13px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+button:hover + .info {
+  opacity: 1;
+}
+
+/* ===== UNIQUE TRANSFORMS ===== */
+
+/* 1. SCALE */
+.scale:hover {
+  transform: scale(1.15);
+}
+
+/* 2. ROTATE */
+.rotate:hover {
+  transform: rotate(15deg);
+}
+
+/* 3. TRANSLATE X */
+.translateX:hover {
+  transform: translateX(20px);
+}
+
+/* 4. TRANSLATE Y */
+.translateY:hover {
+  transform: translateY(-20px);
+}
+
+/* 5. SKEW */
+.skew:hover {
+  transform: skew(10deg, 5deg);
+}
+
+/* 6. ROTATE + SCALE */
+.rotate-scale:hover {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* 7. FLIP Y */
+.flipY {
+  transition: transform 0.6s;
+}
+.flipY:hover {
+  transform: rotateY(180deg);
+}
+
+/* 8. FLIP X */
+.flipX {
+  transition: transform 0.6s;
+}
+.flipX:hover {
+  transform: rotateX(180deg);
+}
+
+/* 9. ZOOM IN */
+.zoom:hover {
+  transform: scale(1.25);
+}
+
+/* 10. SHRINK */
+.shrink:hover {
+  transform: scale(0.8);
+}
+
+/* 11. DIAGONAL MOVE */
+.diagonal:hover {
+  transform: translate(15px, -15px);
+}
+
+/* 12. ROTATE CENTER CHANGE */
+.origin {
+  transform-origin: top left;
+}
+.origin:hover {
+  transform: rotate(20deg);
+}
+
+/* 13. BOUNCE (TRANSITION) */
+.bounce {
+  transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.bounce:hover {
+  transform: translateY(-20px);
+}
+
+/* 14. FADE MOVE */
+.fade {
+  transition: all 0.4s ease;
+}
+.fade:hover {
+  transform: translateY(-10px);
+  opacity: 0.7;
+}
+
+/* 15. ROTATE FULL */
+.full-rotate {
+  transition: transform 0.8s ease;
+}
+.full-rotate:hover {
+  transform: rotate(360deg);
+}
+
+/* 16. CARD LIFT */
+.lift:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>CSS Transform & Transition – Practical Cards</h1>
+  <p>Each card shows a unique transform + transition</p>
+</header>
+
+<main>
+<section class="big-card">
+
+  <div class="grid">
+
+    <article class="card scale">Scale
+      <button>Hover Me</button>
+      <div class="info">transform: scale(1.15)</div>
+    </article>
+
+    <article class="card rotate">Rotate
+      <button>Hover Me</button>
+      <div class="info">transform: rotate(15deg)</div>
+    </article>
+
+    <article class="card translateX">Translate X
+      <button>Hover Me</button>
+      <div class="info">transform: translateX(20px)</div>
+    </article>
+
+    <article class="card translateY">Translate Y
+      <button>Hover Me</button>
+      <div class="info">transform: translateY(-20px)</div>
+    </article>
+
+    <article class="card skew">Skew
+      <button>Hover Me</button>
+      <div class="info">transform: skew()</div>
+    </article>
+
+    <article class="card rotate-scale">Rotate + Scale
+      <button>Hover Me</button>
+      <div class="info">rotate + scale</div>
+    </article>
+
+    <article class="card flipY">Flip Y
+      <button>Hover Me</button>
+      <div class="info">rotateY(180deg)</div>
+    </article>
+
+    <article class="card flipX">Flip X
+      <button>Hover Me</button>
+      <div class="info">rotateX(180deg)</div>
+    </article>
+
+    <article class="card zoom">Zoom
+      <button>Hover Me</button>
+      <div class="info">scale(1.25)</div>
+    </article>
+
+    <article class="card shrink">Shrink
+      <button>Hover Me</button>
+      <div class="info">scale(0.8)</div>
+    </article>
+
+    <article class="card diagonal">Diagonal Move
+      <button>Hover Me</button>
+      <div class="info">translate(x, y)</div>
+    </article>
+
+    <article class="card origin">Transform Origin
+      <button>Hover Me</button>
+      <div class="info">transform-origin: top left</div>
+    </article>
+
+    <article class="card bounce">Bounce
+      <button>Hover Me</button>
+      <div class="info">cubic-bezier transition</div>
+    </article>
+
+    <article class="card fade">Fade + Move
+      <button>Hover Me</button>
+      <div class="info">opacity + translate</div>
+    </article>
+
+    <article class="card full-rotate">360 Rotate
+      <button>Hover Me</button>
+      <div class="info">rotate(360deg)</div>
+    </article>
+
+    <article class="card lift">Card Lift
+      <button>Hover Me</button>
+      <div class="info">lift + shadow</div>
+    </article>
+
+  </div>
+
+</section>
+</main>
+
+<footer>
+  CSS Learning Project ©
+</footer>
+
+</body>
+</html>

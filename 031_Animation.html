@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation Card Layout</title>
+
+<style>
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+}
+
+/* ---------- SEMANTIC LAYOUT ---------- */
+header {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+section {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------- BIG CARD ---------- */
+.big-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ---------- GRID ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* ---------- BOX CARD ---------- */
+.box {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s;
+}
+
+/* FLEX CENTER */
+.box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* BUTTON */
+.box button {
+  padding: 6px 12px;
+  border: none;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---------- POPUP INFO ---------- */
+.info {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  transition: bottom 0.4s;
+}
+
+.box:hover .info {
+  bottom: 0;
+}
+
+/* ---------- UNIQUE ANIMATIONS ---------- */
+
+/* 1 – Scale Pulse (2D) */
+.a1 { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 2 – Rotate (2D) */
+.a2 { animation: rotate2d 3s infinite linear; }
+@keyframes rotate2d {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 3 – Bounce */
+.a3 { animation: bounce 2s infinite; }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* 4 – Fade */
+.a4 { animation: fade 2s infinite; }
+@keyframes fade {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 5 – Slide */
+.a5 { animation: slide 2s infinite alternate; }
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(20px); }
+}
+
+/* 6 – Skew */
+.a6 { animation: skew 2s infinite; }
+@keyframes skew {
+  50% { transform: skewX(10deg); }
+}
+
+/* 7 – RotateX (3D) */
+.a7 { animation: rotateX 3s infinite; }
+@keyframes rotateX {
+  50% { transform: rotateX(180deg); }
+}
+
+/* 8 – RotateY (3D) */
+.a8 { animation: rotateY 3s infinite; }
+@keyframes rotateY {
+  50% { transform: rotateY(180deg); }
+}
+
+/* 9 – Flip (3D) */
+.a9 { animation: flip 3s infinite; }
+@keyframes flip {
+  50% { transform: rotateY(360deg); }
+}
+
+/* 10 – Zoom In */
+.a10 { animation: zoom 2s infinite; }
+@keyframes zoom {
+  50% { transform: scale(1.3); }
+}
+
+/* 11 – Shake */
+.a11 { animation: shake 1s infinite; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* 12 – Glow */
+.a12 { animation: glow 2s infinite; }
+@keyframes glow {
+  50% { box-shadow: 0 0 20px #667eea; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>CSS Animation Layout</h1>
+</header>
+
+<main>
+<section>
+
+<div class="big-card">
+  <h2>Animation Showcase</h2>
+  <p>CSS Grid, Flexbox, 2D & 3D Animations</p>
+</div>
+
+<div class="grid">
+  <!-- BOXES -->
+
+  <div class="box a1">
+    <div class="box-content">Pulse<button>View</button>
+    </div>
+    <div class="info">2D Scale Pulse Animation</div>
+</div>
+
+  <div class="box a2">
+    <div class="box-content">Rotate<button>View</button>
+    </div>
+    <div class="info">2D Rotate Animation</div>
+</div>
+
+  <div class="box a3">
+    <div class="box-content">Bounce<button>View</button>
+    </div>
+    <div class="info">Vertical Bounce Motion</div>
+</div>
+
+  <div class="box a4">
+    <div class="box-content">Fade<button>View</button>
+    </div><div class="info">Opacity Fade Effect</div>
+</div>
+
+  <div class="box a5">
+    <div class="box-content">Slide<button>View</button>
+    </div><div class="info">Horizontal Slide</div>
+</div>
+
+  <div class="box a6">
+    <div class="box-content">Skew<button>View</button>
+    </div><div class="info">Skew 2D Transform</div>
+</div>
+
+  <div class="box a7">
+    <div class="box-content">RotateX<button>View</button>
+    </div><div class="info">3D X-Axis Rotation</div>
+</div>
+
+  <div class="box a8">
+    <div class="box-content">RotateY<button>View</button>
+    </div><div class="info">3D Y-Axis Rotation</div>
+</div>
+
+  <div class="box a9">
+    <div class="box-content">Flip<button>View</button>
+    </div><div class="info">3D Flip Animation</div>
+</div>
+
+  <div class="box a10">
+    <div class="box-content">Zoom<button>View</button>
+    </div>
+    <div class="info">Zoom In Effect</div>
+</div>
+
+  <div class="box a11">
+    <div class="box-content">Shake<button>View</button>
+    </div><div class="info">Shake Motion</div>
+</div>
+
+  <div class="box a12">
+    <div class="box-content">Glow<button>View</button>
+    </div><div class="info">Glow Shadow Animation</div>
+</div>
+</div>
+
+</section>
+</main>
+
+</body>
+</html>
